@@ -11,15 +11,15 @@ $ git clone https://github.com/davinod/lambda-sqs-sam-ple.git
 
 $ cd lambda-sqs-sam-ple
 
-$ aws cloudformation package --template-file sam-sqs-lambda.yml --output-template-file sam-sqs-lambda-transformed.yml --s3-bucket <S3-BUCKET-NAME>
+$ aws cloudformation package --template-file sam-sqs-lambda.yml --output-template-file sam-sqs-lambda-transformed.yml --s3-bucket {S3-BUCKET-NAME}
 
-$ aws cloudformation deploy --template-file ./sam-sqs-lambda-transformed.yml --stack-name <STACK-NAME>
+$ aws cloudformation deploy --template-file ./sam-sqs-lambda-transformed.yml --stack-name {STACK-NAME}
 
-Please replace <S3-BUCKET-NAME> and <STACK-NAME> by proper values.
+Please replace {S3-BUCKET-NAME} and {STACK-NAME} by proper values.
 
 ### 3. After stack is created, push some messages to your SQS queue via AWS CLI
 
-$ aws sqs send-message --queue-url <SQS-QUEUE-URI> --message-body "hello, world"
+$ aws sqs send-message --queue-url {SQS-QUEUE-URI} --message-body "hello, world"
 
 Replace <SQS-QUEUE-URI> by the SQS queue created by CloudFormation. You can access by opening the CFN stack, and clicking on "Resources". It should be something like: https://sqs.<REGION>.amazonaws.com/123456789/lambda-sqs-sam-ple1-MySqsQueue-1H4HVN8TNUIYU
 
